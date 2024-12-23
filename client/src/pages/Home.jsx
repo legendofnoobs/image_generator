@@ -1,14 +1,14 @@
-import Description from "../components/Description"
+// import Description from "../components/Description"
+// import Steps from "../components/Steps"
 import Header from "../components/Header"
-import Steps from "../components/Steps"
 
 
 const Home = () => {
 	return (
 		<div>
 			<Header/>
-			<Steps/>
-			<Description/>
+			{/* <Steps/>
+			<Description/> */}
 		</div>
 	)
 }
