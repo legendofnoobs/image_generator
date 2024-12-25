@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import {assets} from "../assets/assets"
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
+import logo from "../assets/designer1.png"
 
 
 const Navbar = () => {
@@ -13,9 +14,9 @@ const Navbar = () => {
 	// const navigate = useNavigate();
 
 	return (
-		<header className="flex items-center justify-between py-4">
+		<header className="flex items-center justify-between py-4 z-10 relative">
 			<Link to={`/`}>
-				<img src={assets.logo} alt="logo" className="w-28 sm:w-32 lg:w-40"/>
+				<img src={logo} alt="logo" className="w-28 sm:w-32 lg:w-16"/>
 			</Link>
 
 			<div>
@@ -40,7 +41,7 @@ const Navbar = () => {
 				) : (
 				<div className="flex items-center gap-2 sm:gap-5">
 					{/* <p className="cursor-pointer" onClick={()=>navigate("/buyCredit")}>Pricing</p> */}
-					<button className="bg-zinc-800 text-white px-7 py-2 sm:px-10 text-sm rounded-full" onClick={()=>setShowLogin(true)}>Login</button>
+					<button className="bg-[#5500FF] text-white px-7 py-2 sm:px-10 text-sm rounded-full" onClick={()=>setShowLogin(true)}>Login</button>
 				</div>
 				)}
 			</div>
