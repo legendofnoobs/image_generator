@@ -14,7 +14,7 @@ const AppContextProvider = (props)=>{
 	const [token, setToken] = useState(localStorage.getItem('token'));
 	const [credit, setCredit] = useState(false)
 	
-	const backendUrl = import.meta.env.MY_VITE_BACKEND_URL || "https://image-generator-t526.vercel.app/";
+	const backendUrl = import.meta.env.MY_VITE_BACKEND_URL || "https://image-generator-t526.vercel.app";
 
 	const navigate = useNavigate();
 
