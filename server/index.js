@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 // app.use(cors());
 app.use(cors({
-	origin: "https://image-generator-lac.vercel.app/",
+	origin: "https://image-generator-six-delta.vercel.app/",
 	methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 
