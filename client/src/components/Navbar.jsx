@@ -16,7 +16,7 @@ const Navbar = () => {
 	return (
 		<header className="flex items-center justify-between py-4 z-10 relative">
 			<Link to={`/`}>
-				<img src={logo} alt="logo" className="w-28 sm:w-32 lg:w-16"/>
+				<img src={logo} alt="logo" className="w-16"/>
 			</Link>
 
 			<div>

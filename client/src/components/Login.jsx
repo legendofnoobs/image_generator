@@ -51,22 +51,22 @@ const Login = () => {
 
 
 	return (
-		<div className="fixed top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center">
+		<div className="fixed top-0 left-0 right-0 bottom-0 z-20 backdrop-blur-sm bg-black/30 flex justify-center items-center">
 			<form className="relative bg-white p-10 rounded-xl text-slate-500" onSubmit={onSubmitHandler}>
 				<h1 className="textcenter text-2xl text-neutral-700 font-medium">{state}</h1>
 				<p className="text-sm">Welcome back! please sign in to continue</p>
 
 				{state !== "Login" && <div className="border px-6 py-2 flex items-center gap-2 rounded-full mt-5">
 					<img src={assets.profile_icon} alt="userIcon" className="outline-none text-sm" width={30} />
-					<input type="text" placeholder="Full name" required onChange={e=> setName(e.target.value)} value={`${name}`}/>
+					<input type="text" placeholder="Full name" required onChange={e=> setName(e.target.value)} value={`${name}`} className="outline-none border-none"/>
 				</div>}
 				<div className="border px-8 py-2 flex items-center gap-2 rounded-full mt-5">
 					<img src={assets.email_icon} alt="userIcon" className="outline-none text-sm mr-2" width={15} />
-					<input type="email" placeholder="Enter your email" required onChange={e=> setEmail(e.target.value)} value={`${email}`}/>
+					<input type="email" placeholder="Enter your email" required onChange={e=> setEmail(e.target.value)} value={`${email}`} className="outline-none border-none"/>
 				</div>
 				<div className="border px-9 py-2 flex items-center gap-2 rounded-full mt-5">
 					<img src={assets.lock_icon} alt="userIcon" className="outline-none text-sm mr-2" width={10} />
-					<input type="password" placeholder="Enter your password" required onChange={e=> setPassword(e.target.value)} value={`${password}`}/>
+					<input type="password" placeholder="Enter your password" required onChange={e=> setPassword(e.target.value)} value={`${password}`} className="outline-none border-none"/>
 				</div>
 				<p className="text-sm text-blue-600 my-4 cursor-pointer">Forgot password?</p>
 				<button className="bg-blue-600 w-full text-white py-2 rounded-full">{state === "Login" ? "Login" : "Create Account"}</button>

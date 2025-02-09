@@ -14,8 +14,8 @@ const App = () => {
   const {showLogin} = useContext(AppContext)
   return (
     <div className="px-4 sm:px-10 md:px-14 lg:px-28 min-h-screen bg-[#202020] relative overflow-hidden">
-      <div className="w-[700px] h-[700px] absolute bg-[#5500FF]/70 blur-[200px] shadow-2xl shadow-[#5500FF] rounded-full -top-80 -left-80"></div>
-      <div className="w-[700px] h-[700px] absolute bg-[#5500FF]/70 blur-[200px] shadow-[#5500FF] rounded-full -bottom-80 -right-80"></div>
+      <div className="w-1/2 h-1/2 absolute bg-[#5500FF]/70 blur-[200px] sm:blur-[100px] shadow-2xl shadow-[#5500FF] rounded-full -top-80 -left-80 z-0"></div>
+      <div className="w-1/2 h-1/2 absolute bg-[#5500FF]/70 blur-[200px] sm:blur-[100px] shadow-[#5500FF] rounded-full -bottom-80 -right-80 z-0"></div>
       <ToastContainer position="bottom-right"/>
       <Navbar/>
       {showLogin && <Login/>}

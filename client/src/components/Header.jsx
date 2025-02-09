@@ -28,7 +28,7 @@ const Header = () => {
 
 			{/* <p className="mx-auto mt-10 text-center max-w-xl">Unleash your creativity with AI. Turn your imagination into visual art in seconds – just type, and watch the magic happen.</p> */}
 
-			<button className="sm:text-lg text-white bg-[#5500FF] w-auto mt-8 px-12 py-2.5 flex items-center justify-center gap-2 rounded-full" onClick={onClickHandler}>
+			<button className="sm:text-lg text-white bg-[#5500FF] w-auto mt-8 px-12 py-2.5 flex items-center justify-center gap-2 rounded-full relative z-10" onClick={onClickHandler}>
 				Generate Images
 				{/* <img src={assets.star_group} alt="star group" className="h-6"/> */}
 			</button>
