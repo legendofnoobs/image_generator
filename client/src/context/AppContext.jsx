@@ -14,7 +14,8 @@ const AppContextProvider = (props)=>{
 	const [token, setToken] = useState(localStorage.getItem('token'));
 	const [credit, setCredit] = useState(false)
 	
-	const backendUrl = "http://localhost:4000";
+	// const backendUrl = "http://localhost:4000";
+	const backendUrl = "http://image-generator-t526.vercel.app";
 
 	const navigate = useNavigate();
 
