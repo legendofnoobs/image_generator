@@ -15,32 +15,32 @@ const AppContextProvider = (props)=>{
 	const [credit, setCredit] = useState(false)
 	
 	// const backendUrl = "http://localhost:4000";
-	const backendUrl = "http://image-generator-t526.vercel.app";
+	const backendUrl = "https://image-generator-t526.vercel.app";
 
 	const navigate = useNavigate();
 
-	const loadCreditData = async () => {
-		try{
-			const {data} = await axios.get(backendUrl + "/api/user/credits", {headers: {token}})
-			if(data.success) {
-				setCredit(data.credits);
-				setUser(data.user);
-			}
-		}catch(error){
-			console.log(error);
-			toast.error(error.message);
-		}
-	}
+	// const loadCreditData = async () => {
+	// 	try{
+	// 		const {data} = await axios.get(backendUrl + "/api/user/credits", {headers: {token}})
+	// 		if(data.success) {
+	// 			setCredit(data.credits);
+	// 			setUser(data.user);
+	// 		}
+	// 	}catch(error){
+	// 		console.log(error);
+	// 		toast.error(error.message);
+	// 	}
+	// }
 
 	const generateImage = async (prompt)=>{
 		try{
 			const {data} = await axios.post(backendUrl + "/api/image/generate-image", {prompt}, {headers: {token}});
 			if(data.success) {
-                loadCreditData();
+                // loadCreditData();
 				return data.resultImage
             }else{
 				toast.error(data.message);
-				loadCreditData()
+				// loadCreditData()
 				if(data.creditBalance === 0){
 					navigate('/buyCredit')
 				}
@@ -59,7 +59,7 @@ const AppContextProvider = (props)=>{
 			);
 			
 			if (data.success) {
-				loadCreditData();
+				// loadCreditData();
 				return data;
 			}
 		} catch (error) {
@@ -76,7 +76,7 @@ const AppContextProvider = (props)=>{
 
 	useEffect(()=>{
 		if(token){
-			loadCreditData();
+			// loadCreditData();
 		}
 	},[token])
 
@@ -90,7 +90,7 @@ const AppContextProvider = (props)=>{
         setToken,
 		credit,
         setCredit,
-		loadCreditData,
+		// loadCreditData,
 		logout,
 		generateImage,
 		saveImage,

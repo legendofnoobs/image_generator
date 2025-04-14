@@ -9,11 +9,14 @@ const SavedImages = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    // https://image-generator-t526.vercel.app
+    // http://localhost:4000
+
     useEffect(() => {
         const fetchSavedImages = async () => {
             setLoading(true);
             try {
-                const response = await fetch("http://localhost:4000/api/image/saved", {
+                const response = await fetch("https://image-generator-t526.vercel.app/api/image/saved", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -44,7 +47,7 @@ const SavedImages = () => {
     const unsaveImage = async (imageId) => {
         setLoading(true);
         try {
-            const response = await fetch(`http://localhost:4000/api/image/unsave/${imageId}`, {
+            const response = await fetch(`https://image-generator-t526.vercel.app/api/image/unsave/${imageId}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
