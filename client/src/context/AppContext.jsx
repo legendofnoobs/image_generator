@@ -49,6 +49,24 @@ const AppContextProvider = (props)=>{
 		}
 	}
 
+	const saveImage = async (imageData) => {
+		try {
+			const {data} = await axios.post(
+				backendUrl + "/api/image/save", 
+				imageData, 
+				{headers: {token}}
+			);
+			
+			if (data.success) {
+				loadCreditData();
+				return data;
+			}
+		} catch (error) {
+			toast.error(error.message);
+			throw error;
+		}
+	}
+
 	const logout = () =>{
 		localStorage.removeItem('token');
         setToken("");
@@ -74,6 +92,7 @@ const AppContextProvider = (props)=>{
 		loadCreditData,
 		logout,
 		generateImage,
+		saveImage,
 	}
 	return(
 		<AppContext.Provider value={value}>

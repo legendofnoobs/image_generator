@@ -3,13 +3,14 @@ import {ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
 import "./index.css"
-import BuyCredit from "./pages/BuyCredit"
+// import BuyCredit from "./pages/BuyCredit"
 import Home from "./pages/Home"
 import Result from "./pages/Result"
 import Navbar from "./components/Navbar"
 import Login from "./components/Login"
 import { useContext } from "react"
 import { AppContext } from "./context/AppContext"
+import SavedImages from "./pages/SavedImages"
 const App = () => {
   const {showLogin} = useContext(AppContext)
   return (
@@ -22,7 +23,8 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/result" element={<Result />} />
-        <Route path="/buyCredit" element={<BuyCredit />} />
+        <Route path="/saved" element={<SavedImages />} />
+        {/* <Route path="/buyCredit" element={<BuyCredit />} /> */}
       </Routes>
     </div>
   )

@@ -64,11 +64,10 @@ const Login = () => {
 					<img src={assets.email_icon} alt="userIcon" className="outline-none text-sm mr-2" width={15} />
 					<input type="email" placeholder="Enter your email" required onChange={e=> setEmail(e.target.value)} value={`${email}`} className="outline-none border-none"/>
 				</div>
-				<div className="border px-9 py-2 flex items-center gap-2 rounded-full mt-5">
+				<div className="border px-9 py-2 flex items-center gap-2 rounded-full my-5">
 					<img src={assets.lock_icon} alt="userIcon" className="outline-none text-sm mr-2" width={10} />
 					<input type="password" placeholder="Enter your password" required onChange={e=> setPassword(e.target.value)} value={`${password}`} className="outline-none border-none"/>
 				</div>
-				<p className="text-sm text-blue-600 my-4 cursor-pointer">Forgot password?</p>
 				<button className="bg-blue-600 w-full text-white py-2 rounded-full">{state === "Login" ? "Login" : "Create Account"}</button>
 				{state === "Login" ?
 					<p className="mt-5 text-center">Do not have an account <span className="text-blue-600 cursor-pointer" onClick={() => { setState("Sign up") }}>Sign up</span></p>

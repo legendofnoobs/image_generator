@@ -41,7 +41,7 @@ const Navbar = () => {
 				) : (
 				<div className="flex items-center gap-2 sm:gap-5">
 					{/* <p className="cursor-pointer" onClick={()=>navigate("/buyCredit")}>Pricing</p> */}
-					<button className="bg-[#5500FF] text-white px-7 py-2 sm:px-10 text-sm rounded-full" onClick={()=>setShowLogin(true)}>Login</button>
+					<button className="bg-purple-700 text-white px-7 py-2 sm:px-10 text-sm rounded-full" onClick={()=>setShowLogin(true)}>Login</button>
 				</div>
 				)}
 			</div>
