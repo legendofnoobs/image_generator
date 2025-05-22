@@ -61,27 +61,27 @@ const EditImage = () => {
     }, [originalImage, editedImage]);
 
     const compressBase64Image = async (base64, quality = 0.7) => {
-		return new Promise((resolve) => {
-			const img = new Image();
-			img.src = base64;
-			img.onload = () => {
-				const canvas = document.createElement('canvas');
-				canvas.width = img.width;
-				canvas.height = img.height;
-				const ctx = canvas.getContext('2d');
-				ctx.drawImage(img, 0, 0);
-				resolve(canvas.toDataURL('image/jpeg', quality));
-			};
-		});
-	}
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.src = base64;
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                resolve(canvas.toDataURL('image/jpeg', quality));
+            };
+        });
+    }
 
     const compressImageIfNeeded = async (imageData) => {
-		// Only compress if the image is larger than 1MB
-		if (imageData.length > 1000000) {
-			return await compressBase64Image(imageData);
-		}
-		return imageData;
-	}
+        // Only compress if the image is larger than 1MB
+        if (imageData.length > 1000000) {
+            return await compressBase64Image(imageData);
+        }
+        return imageData;
+    }
 
     const onSaveHandler = async (e) => {
         e.preventDefault();
@@ -212,14 +212,19 @@ const EditImage = () => {
         return (
             <div className="flex flex-col items-center justify-center min-h-[70vh] gap-6">
                 <h2 className="text-white text-xl mb-4">Upload an image to start editing</h2>
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                    className="text-white"
-                />
+
+                <label className="relative cursor-pointer bg-gradient-to-r from-purple-600 to-purple-800 text-white font-medium px-6 py-3 rounded-full shadow-lg hover:from-purple-700 hover:to-purple-900 transition-all duration-300">
+                    Choose Image
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        className="absolute inset-0 opacity-0 cursor-pointer"
+                    />
+                </label>
+
                 <button
-                    className="px-4 py-2 bg-gray-700 rounded text-white mt-4"
+                    className="px-5 py-2.5 bg-gray-800 hover:bg-gray-700 transition-all duration-200 rounded-full text-white mt-4 shadow-md"
                     onClick={() => navigate(-1)}
                 >
                     Go Back

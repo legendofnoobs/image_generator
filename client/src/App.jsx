@@ -11,6 +11,7 @@ import { useContext } from "react"
 import { AppContext } from "./context/AppContext"
 import SavedImages from "./pages/SavedImages"
 import EditImage from "./pages/EditImage"
+import Documentation from "./pages/Documentation"
 const App = () => {
   const {showLogin} = useContext(AppContext)
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/result" element={<Result />} />
         <Route path="/edit" element={<EditImage />} />
         <Route path="/saved" element={<SavedImages />} />
+        <Route path="/docs" element={<Documentation />} />
       </Routes>
     </div>
   )
