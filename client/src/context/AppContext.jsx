@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
@@ -14,23 +13,36 @@ const AppContextProvider = (props)=>{
 	const [token, setToken] = useState(localStorage.getItem('token'));
 	const [credit, setCredit] = useState(false)
 	
-	// const backendUrl = "http://localhost:4000";
-	const backendUrl = "https://image-generator-t526.vercel.app";
+	const backendUrl = "http://localhost:4000";
+	// const backendUrl = "https://image-generator-t526.vercel.app";
 
 	const navigate = useNavigate();
 
-	// const loadCreditData = async () => {
-	// 	try{
-	// 		const {data} = await axios.get(backendUrl + "/api/user/credits", {headers: {token}})
-	// 		if(data.success) {
-	// 			setCredit(data.credits);
-	// 			setUser(data.user);
-	// 		}
-	// 	}catch(error){
-	// 		console.log(error);
-	// 		toast.error(error.message);
-	// 	}
-	// }
+	useEffect(()=>{
+		if(token){
+			// Fetch user info if token exists
+			const fetchUser = async () => {
+				try {
+					const { data } = await axios.get(backendUrl + "/api/user/auth", { headers: { token } });
+					if (data.success) {
+						setCredit(data.credits);
+						setUser(data.user);
+					} else {
+						setUser(null);
+						setCredit(false);
+					}
+				} catch (error) {
+					setUser(null);
+					setCredit(false);
+					console.log(error);
+				}
+			};
+			fetchUser();
+		} else {
+			setUser(null);
+			setCredit(false);
+		}
+	},[token])
 
 	const generateImage = async (prompt)=>{
 		try{
@@ -68,6 +80,24 @@ const AppContextProvider = (props)=>{
 		}
 	}
 
+	const editImage = async (image, prompt, mask) => {
+		try {
+			const { data } = await axios.post(
+				backendUrl + "/api/image/edit",
+				{ image, prompt, mask },
+				{ headers: { token } }
+			);
+	
+			if (data.success) {
+				return data.resultImage;
+			} else {
+				toast.error(data.message);
+			}
+		} catch (error) {
+			toast.error(error.message);
+		}
+	};
+
 	const logout = () =>{
 		localStorage.removeItem('token');
         setToken("");
@@ -94,6 +124,7 @@ const AppContextProvider = (props)=>{
 		logout,
 		generateImage,
 		saveImage,
+		editImage,
 	}
 	return(
 		<AppContext.Provider value={value}>

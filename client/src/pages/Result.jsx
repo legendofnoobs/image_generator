@@ -177,6 +177,13 @@ const Result = () => {
 							<MdOutlineDataSaverOn className="text-white text-base group-hover:text-black transition-colors"/>
 						</button>
 						<a href={image} download className="flex justify-center items-center bg-purple-700 hover:bg-purple-900 transition-colors px-8 py-3 rounded-full cursor-pointer">Download</a>
+						<button
+							type="button"
+							className="bg-purple-700 hover:bg-purple-900 transition-colors text-white px-8 py-3 rounded-full cursor-pointer"
+							onClick={() => navigate("/edit", { state: { image } })}
+						>
+							Edit
+						</button>
 					</div>
 				}
 			</form>
