@@ -15,8 +15,6 @@ const AppContextProvider = (props) => {
 
 	const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000"
 
-	console.log("-------->"+backendUrl)
-
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -45,7 +43,7 @@ const AppContextProvider = (props) => {
 			setUser(null);
 			setCredit(false);
 		}
-	}, [token]);
+	}, [backendUrl, token]);
 
 	const generateImage = async (prompt) => {
 		try {
