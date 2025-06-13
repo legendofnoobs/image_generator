@@ -1,12 +1,21 @@
 {
-	"version":2,
-	"builds": [
-		{"src": "*.js", "use": "@vercel/node"}
-	],
-	"routes": [
-		{
-			"src": "/(.*)",
-            "dest": "/"
-		}
-	]
+    "version": 2,
+    "builds": [
+        {
+            "src": "src/server.ts",
+            "use": "@vercel/node",
+            "config": {
+                "includeFiles": [
+                    "dist/**",
+                    "src/config/firebase-adminsdk.json"
+                ]
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "src/server.ts"
+        }
+    ]
 }
