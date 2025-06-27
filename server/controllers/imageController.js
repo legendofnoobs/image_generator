@@ -26,7 +26,12 @@ export const generateImage = async (req, res) => {
 		const base64Image = Buffer.from(data, "binary").toString("base64")
 		const resultImage = `data:image/png;base64,${base64Image}`
 
-		res.json({ success: true, message: "image generated", resultImage })
+		res.json({ 
+			success: true, 
+			message: "image generated", 
+			resultImage,
+			remainingCredits: response.headers['x-remaining-credits'] 
+		})
 
 	} catch (error) {
 		console.log(error)
