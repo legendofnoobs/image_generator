@@ -53,11 +53,9 @@ const AppContextProvider = (props) => {
 				{ headers: { token } }
 			);
 			if (data.success) {
-				// loadCreditData();
 				return data.resultImage;
 			} else {
 				toast.error(data.message);
-				// loadCreditData()
 				if (data.creditBalance === 0) {
 					navigate("/buyCredit");
 				}
@@ -76,7 +74,6 @@ const AppContextProvider = (props) => {
 			);
 
 			if (data.success) {
-				// loadCreditData();
 				return data;
 			}
 		} catch (error) {
@@ -110,12 +107,6 @@ const AppContextProvider = (props) => {
 		navigate("/");
 	};
 
-	useEffect(() => {
-		if (token) {
-			// loadCreditData();
-		}
-	}, [token]);
-
 	const value = {
 		user,
 		setUser,
@@ -126,7 +117,6 @@ const AppContextProvider = (props) => {
 		setToken,
 		credit,
 		setCredit,
-		// loadCreditData,
 		logout,
 		generateImage,
 		saveImage,

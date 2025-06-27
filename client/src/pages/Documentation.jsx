@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Documentation = () => {
-    const navigate = useNavigate(); // Import useNavigate from react-router-dom
+    const navigate = useNavigate();
     return (
         <div className="relative z-50 text-white mx-auto max-w-5xl p-6">
             <button
