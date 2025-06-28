@@ -211,24 +211,37 @@ const EditImage = () => {
     if (!originalImage) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[70vh] gap-6">
-                <h2 className="text-white text-xl mb-4">Upload an image to start editing</h2>
+                <div className="lg:hidden text-center">
+                    <p className="text-white">Switch to desktop to edit images !</p>
+                    <button
+                        className="px-5 py-2.5 bg-gray-800 hover:bg-gray-700 transition-all duration-200 rounded-full text-white mt-4 shadow-md"
+                        onClick={() => navigate(-1)}
+                    >
+                        Go Back
+                    </button>
+                </div>
 
-                <label className="relative cursor-pointer bg-gradient-to-r from-purple-600 to-purple-800 text-white font-medium px-6 py-3 rounded-full shadow-lg hover:from-purple-700 hover:to-purple-900 transition-all duration-300">
-                    Choose Image
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleFileChange}
-                        className="absolute inset-0 opacity-0 cursor-pointer"
-                    />
-                </label>
+                <div className="flex-col items-center justify-center gap-6 hidden lg:flex">
 
-                <button
-                    className="px-5 py-2.5 bg-gray-800 hover:bg-gray-700 transition-all duration-200 rounded-full text-white mt-4 shadow-md"
-                    onClick={() => navigate(-1)}
-                >
-                    Go Back
-                </button>
+                    <h2 className="text-white text-xl mb-4">Upload an image to start editing</h2>
+
+                    <label className="relative cursor-pointer bg-gradient-to-r from-purple-600 to-purple-800 text-white font-medium px-6 py-3 rounded-full shadow-lg hover:from-purple-700 hover:to-purple-900 transition-all duration-300">
+                        Choose Image
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            className="absolute inset-0 opacity-0 cursor-pointer"
+                        />
+                    </label>
+
+                    <button
+                        className="px-5 py-2.5 bg-gray-800 hover:bg-gray-700 transition-all duration-200 rounded-full text-white mt-4 shadow-md"
+                        onClick={() => navigate(-1)}
+                    >
+                        Go Back
+                    </button>
+                </div>
             </div>
         );
     }
